@@ -23,3 +23,30 @@ docker run --rm \
   -v "$(pwd)/Collection_1":/app/Collection_1 \
   -v "$(pwd)/output":/app/output \
   adobe-r1b
+
+
+✅ How to Run for Collection 1
+
+docker build -t adobe-r1b .
+docker run --rm \
+  -v "$(pwd)/Collection_1":/app/Collection_1 \
+  -v "$(pwd)/output":/app/output \
+  adobe-r1b \
+  /app/Collection_1 --top_k 15
+
+
+✅ How to Run for Collection 2
+
+docker run --rm \
+  -v "$(pwd)/Collection_3":/app/Collection_2 \
+  -v "$(pwd)/output":/app/output \
+  adobe-r1b \
+  /app/Collection_3 --top_k 15
+
+✅ How to Run for Collection 3
+docker run --rm \
+  -v "$(pwd)/Collection_3":/app/Collection_3 \
+  -v "$(pwd)/output":/app/output \
+  adobe-r1b \
+  /app/Collection_3 --top_k 15
+

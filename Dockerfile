@@ -1,23 +1,21 @@
-# ---------- BASE ----------
 FROM python:3.10-slim
 
-# ---------- ENV & SETUP ----------
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install OS dependencies
+# Install necessary system packages
 RUN apt-get update && apt-get install -y \
     git \
     build-essential \
     poppler-utils \
     && rm -rf /var/lib/apt/lists/*
 
-# ---------- WORKDIR ----------
+# Set working directory
 WORKDIR /app
 
-# ---------- COPY FILES ----------
+# Copy all source code into the image
 COPY . /app
 
-# ---------- PYTHON DEPENDENCIES ----------
+# Install Python dependencies
 RUN pip install --upgrade pip && \
     pip install \
     torch \
@@ -26,5 +24,5 @@ RUN pip install --upgrade pip && \
     transformers \
     tqdm
 
-# ---------- RUN DEFAULT COMMAND ----------
-CMD ["python3", "main.py", "./Collection_1/", "--top_k", "15"]
+# Allow flexible runtime arguments
+ENTRYPOINT ["python3", "main.py"]
