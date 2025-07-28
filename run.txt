@@ -1,0 +1,4 @@
+python3 main.py \
+  --input_json "/Users/sujith/Desktop/adobe-1b/Collection 1/collection1_input.json" \
+  --pdf_dir "/Users/sujith/Desktop/adobe-1b/Collection 1/PDFs" \
+  --output_json "/Users/sujith/Desktop/adobe-1b/output/collection1_output.json"
